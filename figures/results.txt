@@ -1,0 +1,29 @@
+PART 1: quadratic f(w) = 0.5*(w1^2 + 10*w2^2), start = (-9, 2.5)
+     lr |  steps to loss<1e-6 | final loss (200 steps)
+   0.01 |               never |              7.270e-01
+   0.05 |                 171 |              4.976e-08
+    0.1 |                  84 |              2.016e-17
+   0.18 |                  45 |              1.358e-33
+  0.205 |               never |              1.050e+08
+
+PART 2: non-convex f(x,y) = x^4 - 3x^2 + x + y^2, 500 random starts in [-2,2]^2
+    lr |  % reached global min | % local min | % diverged/oscillating
+  0.01 |                  47.8 |        52.2 |                    0.0
+  0.05 |                  47.8 |        52.2 |                    0.0
+   0.1 |                  50.8 |        49.2 |                    0.0
+  0.13 |                  53.0 |        47.0 |                    0.0
+  0.15 |                   0.0 |        45.6 |                   54.4
+   0.2 |                   0.0 |        43.6 |                   56.4
+  demo start (-0.4, 1.8), lr=0.05: last two x values -1.301, -1.301
+  demo start (-0.4, 1.8), lr=0.15: last two x values -1.085, -1.445
+
+PART 3: gradient check, worst relative error = 4.45e-08
+Spiral data, 3 classes, 720 train / 180 test, net [2, 64, 64, 64, 64, 64, 3]
+mini-batch GD, batch 64, 150 epochs, mean of 3 seeds
+   lr |            method | last-10 avg loss | test acc % | epochs to loss<0.3
+ 0.05 |  No normalization |            0.119 |       98.1 |                 74
+ 0.05 |        Batch norm |            0.065 |       96.5 |                  9
+ 0.05 |        Layer norm |            0.061 |       98.3 |                 17
+  0.2 |  No normalization |            0.067 |       98.3 |                 41
+  0.2 |        Batch norm |            0.101 |       93.7 |                 11
+  0.2 |        Layer norm |            0.140 |       94.3 |                 41
